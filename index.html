@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAAM | Premium Creative Space</title>
+    <title>MAAM | Ultra-Premium Visionary Creative</title>
     <style>
-        :root { --main-blue: #2b59c3; --rgb-speed: 4s; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #050505; color: #fff; text-align: center; margin: 0; overflow-x: hidden; }
+        :root { --main-blue: #2b59c3; --rgb-speed: 5s; --vip-rgb-basic: cyan; --vip-rgb-silver: violet; --vip-rgb-gold: gold; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: radial-gradient(circle at center, #111 0%, #000 80%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10" fill="%231a1a1a"/></svg>'); color: #fff; text-align: center; margin: 0; overflow-x: hidden; }
         
         @keyframes rgbText {
             0% { color: #ff3e3e; text-shadow: 0 0 15px #ff3e3e; }
@@ -15,140 +15,168 @@
             100% { color: #ff3e3e; text-shadow: 0 0 15px #ff3e3e; }
         }
 
-        header { padding: 80px 20px; background: radial-gradient(circle at center, #111 0%, #000 100%); border-bottom: 1px solid #1a1a1a; }
-        h1 { font-size: 5rem; animation: rgbText var(--rgb-speed) infinite linear; margin: 0; letter-spacing: 12px; text-transform: uppercase; cursor: default; }
-        .tagline { color: #666; font-size: 1.1rem; letter-spacing: 3px; margin-top: 10px; }
+        header { padding: 100px 20px; background: none; border-bottom: 2px solid #1a1a1a; }
+        h1 { font-size: 6rem; animation: rgbText var(--rgb-speed) infinite linear; margin: 0; letter-spacing: 15px; text-transform: uppercase; cursor: default; }
+        .tagline { color: #aaa; font-size: 1.2rem; letter-spacing: 4px; margin-top: 15px; }
 
-        /* Pricing Section - VIP Look */
-        .pricing-section { padding: 60px 20px; background: #080808; }
-        .pricing-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 20px; }
-        .price-card { background: #0c0c0c; border: 1px solid #1a1a1a; border-radius: 20px; padding: 35px; width: 270px; transition: 0.4s; position: relative; }
-        .price-card:hover { transform: translateY(-10px); border-color: var(--main-blue); box-shadow: 0 10px 40px rgba(43,89,195,0.1); }
-        .price-card h3 { font-size: 1.6rem; margin: 0; letter-spacing: 2px; color: #ccc; }
-        .price-card .cost { font-size: 2.8rem; font-weight: bold; color: var(--main-blue); margin: 20px 0; }
-        
-        .pay-btn { background: #fff; color: #000; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; display: block; cursor: pointer; border: none; width: 100%; font-size: 1rem; transition: 0.3s; text-transform: uppercase; }
-        .pay-btn:hover { background: var(--main-blue); color: #fff; transform: scale(1.02); }
-
-        /* Professional Payment Modal */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding: 20px 0; color: #333; text-align: left;}
-        .payment-container { width: 100%; max-width: 400px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-        .pay-header { background: var(--main-blue); color: white; padding: 15px; text-align: center; font-weight: bold; }
-        .amount-box { text-align: center; padding: 15px; border-bottom: 1px solid #eee; }
-        .qr-section { text-align: center; padding: 15px; }
-        .qr-section img { width: 200px; border: 1px solid #ddd; border-radius: 5px; }
-        .upi-copy-box { background: #f9f9f9; border: 1px dashed var(--main-blue); margin: 10px 15px; padding: 12px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .copy-btn { background: var(--main-blue); color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
-        .utr-section { padding: 15px; }
-        .utr-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 25px; margin-bottom: 10px; outline: none; box-sizing: border-box;}
-        .submit-btn { width: 100%; padding: 12px; background: var(--main-blue); color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background: #1c3d8c; }
-        .close-modal { color: white; font-size: 30px; position: absolute; right: 20px; top: 10px; cursor: pointer; z-index: 1001; }
-        #timer { font-weight: bold; color: #ff3e3e; }
-
-        /* Gallery and Captions - Premium Quality */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; background: #050505; }
-        .photo-card { background: #0c0c0c; border: 1px solid #1a1a1a; border-radius: 15px; overflow: hidden; transition: 0.3s; }
-        .photo-card:hover { border-color: #333; transform: scale(1.02); }
-        .gallery img { width: 100%; height: 400px; object-fit: cover; }
-        .caption { padding: 20px; font-style: italic; color: #888; border-top: 1px solid #1a1a1a; font-size: 0.95rem; }
-
-        /* RGB Instagram Buttons - Premium Names */
-        @keyframes rgbBorder {
-            0% { border-color: #ff3e3e; box-shadow: 0 0 10px #ff3e3e; }
-            33% { border-color: #00e5ff; box-shadow: 0 0 10px #00e5ff; }
-            66% { border-color: #55ff00; box-shadow: 0 0 10px #55ff00; }
-            100% { border-color: #ff3e3e; box-shadow: 0 0 10px #ff3e3e; }
+        /* VIP RGB Pricing Section */
+        @keyframes rgbCardBasic {
+            0% { border-color: cyan; box-shadow: 0 0 15px cyan; }
+            33% { border-color: lime; box-shadow: 0 0 15px lime; }
+            66% { border-color: violet; box-shadow: 0 0 15px violet; }
+            100% { border-color: cyan; box-shadow: 0 0 15px cyan; }
+        }
+        @keyframes rgbCardSilver {
+            0% { border-color: violet; box-shadow: 0 0 20px violet; }
+            33% { border-color: fuchsia; box-shadow: 0 0 20px fuchsia; }
+            66% { border-color: red; box-shadow: 0 0 20px red; }
+            100% { border-color: violet; box-shadow: 0 0 20px violet; }
+        }
+        @keyframes rgbCardGold {
+            0% { border-color: gold; box-shadow: 0 0 25px gold; }
+            33% { border-color: coral; box-shadow: 0 0 25px coral; }
+            66% { border-color: firebrick; box-shadow: 0 0 25px firebrick; }
+            100% { border-color: gold; box-shadow: 0 0 25px gold; }
         }
 
-        .insta-links { padding: 60px; background: #000; }
-        .insta-btn { margin: 10px; padding: 18px 35px; background: #080808; color: #fff; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; border: 2px solid #fff; animation: rgbBorder var(--rgb-speed) infinite linear; transition: 0.3s; }
-        .insta-btn:hover { background: #fff; color: #000; transform: scale(1.05); animation: none; border-color: #fff; box-shadow: 0 0 20px #fff; }
+        .pricing-section { padding: 80px 20px; background: #080808; border-bottom: 1px solid #1a1a1a;}
+        .pricing-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 20px; }
+        .price-card { background: #0c0c0c; border: 2px solid #1a1a1a; border-radius: 25px; padding: 40px; width: 280px; transition: 0.4s; position: relative; }
+        
+        .basic-vip { animation: rgbCardBasic var(--rgb-speed) infinite linear; }
+        .silver-vip { animation: rgbCardSilver var(--rgb-speed) infinite linear; transform: scale(1.05); }
+        .gold-vip { animation: rgbCardGold var(--rgb-speed) infinite linear; }
 
-        footer { padding: 40px; color: #333; font-size: 0.8rem; background: #000; }
+        .price-card:hover { transform: translateY(-10px); }
+        .price-card h3 { font-size: 1.8rem; margin: 0; letter-spacing: 3px; color: #fff; text-transform: uppercase; }
+        .price-card .cost { font-size: 3.2rem; font-weight: bold; margin: 25px 0; font-family: 'Montserrat', sans-serif; }
+        .basic-vip .cost { color: var(--vip-rgb-basic); }
+        .silver-vip .cost { color: var(--vip-rgb-silver); }
+        .gold-vip .cost { color: var(--vip-rgb-gold); }
+
+        .pay-btn { background: #fff; color: #000; padding: 18px; border-radius: 50px; text-decoration: none; font-weight: bold; display: block; cursor: pointer; border: none; width: 100%; font-size: 1.1rem; transition: 0.3s; text-transform: uppercase; font-family: 'Avenir', sans-serif; letter-spacing: 1px;}
+        .price-card:hover .pay-btn { background: var(--main-blue); color: #fff; transform: scale(1.03); }
+
+        /* Professional Payment Modal */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding: 30px 0; color: #333; text-align: left;}
+        .payment-container { width: 100%; max-width: 420px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .pay-header { background: var(--main-blue); color: white; padding: 20px; text-align: center; font-weight: bold; font-size: 1.1rem;}
+        .amount-box { text-align: center; padding: 20px; border-bottom: 1px solid #eee; }
+        .qr-section { text-align: center; padding: 20px; }
+        .qr-section img { width: 220px; border: 1px solid #ddd; border-radius: 8px; }
+        .upi-copy-box { background: #f9f9f9; border: 1px dashed var(--main-blue); margin: 15px; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .copy-btn { background: var(--main-blue); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 0.9rem; font-weight: bold; }
+        .utr-section { padding: 20px; }
+        .utr-input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 25px; margin-bottom: 15px; outline: none; box-sizing: border-box; font-size: 1rem;}
+        .submit-btn { width: 100%; padding: 15px; background: var(--main-blue); color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
+        .submit-btn:hover { background: #1c3d8c; }
+        .close-modal { color: white; font-size: 35px; position: absolute; right: 25px; top: 15px; cursor: pointer; z-index: 1001; }
+        #timer { font-weight: bold; color: #ff3e3e; }
+        #modal-cost { animation: rgbText var(--rgb-speed) infinite linear; }
+
+        /* Gallery and Captions - Extreme VIP Look */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px; background: #050505; }
+        .photo-card { background: #0c0c0c; border: 1px solid #1a1a1a; border-radius: 20px; overflow: hidden; transition: 0.3s; position: relative; }
+        .photo-card:hover { border-color: #333; transform: scale(1.03); }
+        .gallery img { width: 100%; height: 450px; object-fit: cover; }
+        .caption { padding: 25px; font-style: italic; color: #ccc; border-top: 1px solid #1a1a1a; font-size: 1.1rem; line-height: 1.6; }
+
+        /* RGB Instagram Buttons - Extreme High-Quality Feed */
+        @keyframes rgbBorderVIP {
+            0% { border-color: #ff3e3e; box-shadow: 0 0 15px #ff3e3e; }
+            33% { border-color: #00e5ff; box-shadow: 0 0 15px #00e5ff; }
+            66% { border-color: #55ff00; box-shadow: 0 0 15px #55ff00; }
+            100% { border-color: #ff3e3e; box-shadow: 0 0 15px #ff3e3e; }
+        }
+
+        .insta-links { padding: 80px 20px; background: #000; border-top: 2px solid #1a1a1a;}
+        .insta-btn { margin: 15px; padding: 20px 45px; background: #080808; color: #fff; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; border: 3px solid #fff; animation: rgbBorderVIP var(--rgb-speed) infinite linear; transition: 0.3s; font-family: 'Avenir', sans-serif;}
+        .insta-btn:hover { background: #fff; color: #000; transform: scale(1.08); animation: none; border-color: #fff; box-shadow: 0 0 25px #fff; }
+
+        footer { padding: 50px; color: #444; font-size: 0.9rem; background: #000; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>MAAM</h1>
-    <div class="tagline">THE VISIONARY CREATOR | PREMIUM CONTENT</div>
+    <div class="tagline">THE VISIONARY CREATOR | PREMIUM CREATIVE SPACE | BEYOND ORDINARY</div>
 </header>
 
 <section class="pricing-section">
     <div class="pricing-container">
-        <div class="price-card">
-            <h3>BASIC ENTRY</h3>
+        <div class="price-card basic-vip">
+            <h3>BASIC VIP ENTRY</h3>
             <div class="cost">₹99</div>
-            <button class="pay-btn" onclick="openPayment(99)">Explore</button>
+            <button class="pay-btn" onclick="openPayment(99, 'BASIC')">Access Feed</button>
         </div>
 
-        <div class="price-card" style="border-color: var(--main-blue); transform: scale(1.05);">
-            <div style="background: var(--main-blue); color: #fff; position: absolute; top: 0; left: 50%; transform: translateX(-50%); padding: 5px 15px; border-radius: 0 0 10px 10px; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px;">ELITE</div>
-            <h3 style="color: var(--main-blue);">SILVER ELITE</h3>
+        <div class="price-card silver-vip">
+            <div style="background: var(--vip-rgb-silver); color: #fff; position: absolute; top: 0; left: 50%; transform: translateX(-50%); padding: 5px 20px; border-radius: 0 0 10px 10px; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px;">ELITE ACCESS</div>
+            <h3>SILVER ELITE PASS</h3>
             <div class="cost">₹499</div>
-            <button class="pay-btn" style="background: var(--main-blue); color: #fff;" onclick="openPayment(499)">Upgrade</button>
+            <button class="pay-btn" onclick="openPayment(499, 'SILVER')">Upgrade to Elite</button>
         </div>
 
-        <div class="price-card">
-            <h3>GOLD ROYAL</h3>
+        <div class="price-card gold-vip">
+            <h3>GOLD ROYAL PASS</h3>
             <div class="cost">₹999</div>
-            <button class="pay-btn" onclick="openPayment(999)">Access All</button>
+            <button class="pay-btn" onclick="openPayment(999, 'GOLD')">Claim Royalty</button>
         </div>
     </div>
 </section>
 
 <div class="gallery">
     <div class="photo-card">
-        <img src="K2" alt="1">
-        <div class="caption">"Premium Aesthetics: Pure class."</div>
+        <img src="K2" alt="Creator Mode">
+        <div class="caption">"Premium Aesthetics: Pure class. A unique visual narrative that redefines modern creative standards. This piece encapsulates the essence of style, combining high-definition clarity with unparalleled artistic vision. It is more than just a photo; it is an experience, designed to inspire and provoke thought in every viewer. Witness the visionary force that shapes the digital art landscape."</div>
     </div>
     <div class="photo-card">
-        <img src="K3" alt="2">
-        <div class="caption">"Timeless Vibe: Style defined."</div>
+        <img src="K3" alt="VIP Style">
+        <div class="caption">"Timeless Vibe: Style defined. Step into a world where quality knows no compromise and creativity knows no bounds. Every detail is meticulously crafted to produce a result that is both powerful and refined. This image is the manifestation of our elite mindset, a testament to the pursuit of excellence in every visual creation. Discover the difference that visionary works make."</div>
     </div>
     <div class="photo-card">
-        <img src="K" alt="3">
-        <div class="caption">"Creator Perspective: Visual artistry."</div>
+        <img src="K" alt="Creative Space">
+        <div class="caption">"Creator Perspective: Visual artistry. Merging the raw energy of creativity with the polish of high-end design, this frame is a masterclass in aesthetics. It offers a fresh look at digital storytelling, inviting you to engage with the world through a premium lens. Join the inner circle and unlock access to the very best that visionary creative minds can offer."</div>
     </div>
     <div class="photo-card">
-        <img src="K1" alt="4">
-        <div class="caption">"Elite Mindset: Visionary works."</div>
+        <img src="K1" alt="Elite Works">
+        <div class="caption">"Elite Mindset: Visionary works. Explore the depths of our creative space, where ideas are transformed into stunning realities. This creation is a showcase of technical skill and artistic brilliance, a beacon of premium content in a crowded digital space. We are setting a new benchmark for what visual content can be, and we invite you to be part of this exclusive journey."</div>
     </div>
 </div>
 
 <div class="insta-links">
-    <a href="https://www.instagram.com/kyan_maan0" target="_blank" class="insta-btn">Official Hub</a>
-    <a href="https://www.instagram.com/another_account" target="_blank" class="insta-btn">Exclusive Feed</a>
+    <a href="https://www.instagram.com/kyan_maan0" target="_blank" class="insta-btn">Follow The Main Hub</a>
+    <a href="https://www.instagram.com/your_exclusive_account" target="_blank" class="insta-btn">Exclusive Feed Access</a>
 </div>
 
 <div id="payModal" class="modal">
     <span class="close-modal" onclick="closePayment()">&times;</span>
     <div class="payment-container">
-        <div class="pay-header">MAAM | Secure Payment</div>
+        <div class="pay-header">MAAM | Secure High-End Payment Gateway</div>
         <div class="amount-box">
-            <p style="margin:0; color:#888; font-size: 0.8rem;">Reference: MAAM-PREMIUM</p>
-            <span style="font-size: 2.2rem; font-weight: bold; color: var(--main-blue);">₹<span id="price-tag">99</span></span>
-            <p style="color:#666; margin-top: 5px; font-size: 0.9rem;">Remaining: <span id="timer">05:00</span></p>
+            <p style="margin:0; color:#888; font-size: 0.8rem;">MAAM PREMIUM TXN: TXN-VIP-<span id="plan-name">BASIC</span></p>
+            <span style="font-size: 2.5rem; font-weight: bold; color: var(--main-blue);">₹<span id="price-tag" class="rgb-text-modal">99</span></span>
+            <p style="color:#666; margin-top: 5px; font-size: 0.95rem;">Remaining Time: <span id="timer">05:00</span></p>
         </div>
         <div class="qr-section">
-            <img src="MM.jpeg" alt="QR Code">
-            <p style="font-size: 0.85rem; font-weight: bold; margin-top: 10px;">Scan to pay with any UPI app</p>
+            <img src="MM.jpeg" alt="VIP QR Code">
+            <p style="font-size: 0.9rem; font-weight: bold; margin-top: 10px;">Scan to pay with any secure UPI application</p>
         </div>
         <div class="upi-copy-box">
             <span id="upi-id" style="font-weight: bold; font-family: monospace; font-size: 1rem;">Kyanmaan@fam</span>
             <button class="copy-btn" onclick="copyUPI()">Copy ID</button>
         </div>
         <div class="utr-section">
-            <p style="font-size: 0.85rem; font-weight: bold; color: red; margin-bottom: 8px;">Enter 12-digit UTR after payment:</p>
-            <input type="text" class="utr-input" placeholder="Ref Number / UTR" maxlength="12">
-            <button class="submit-btn" onclick="alert('Verification submitted!')">Confirm Payment</button>
+            <p style="font-size: 0.9rem; font-weight: bold; color: red; margin-bottom: 10px;">Input 12-digit UTR below for immediate verification:</p>
+            <input type="text" class="utr-input" placeholder="Enter Ref Number / UTR" maxlength="12">
+            <button class="submit-btn" onclick="alert('Transaction submitted for VIP verification!')">Confirm Your VIP Payment</button>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>© 2026 MAAM PRODUCTION | PREMIER CREATIVE SPACE</p>
+    <p>© 2026 MAAM PRODUCTION | PREMIER CREATIVE SPACE | EXCLUSIVE CONTENT | Saharanpur, UP, INDIA</p>
 </footer>
 
 <script>
@@ -172,8 +200,9 @@
         }, 1000);
     }
 
-    function openPayment(amt) {
+    function openPayment(amt, pName) {
         document.getElementById('price-tag').innerText = amt;
+        document.getElementById('plan-name').innerText = pName;
         document.getElementById('payModal').style.display = 'flex';
         var fiveMinutes = 60 * 5,
             display = document.querySelector('#timer');
