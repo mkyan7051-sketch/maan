@@ -27,8 +27,8 @@
         .pay-btn { background: #fff; color: #000; padding: 12px; width: 100%; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
 
         /* Professional Payment Modal */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: flex-start; overflow-y: auto; padding: 20px 0; }
-        .payment-container { width: 100%; max-width: 400px; background: white; border-radius: 10px; overflow: hidden; color: #333; text-align: left; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: flex-start; overflow-y: auto; padding: 20px 0; color: #333; text-align: left;}
+        .payment-container { width: 100%; max-width: 400px; background: white; border-radius: 10px; overflow: hidden; }
         .pay-header { background: var(--main-blue); color: white; padding: 15px; text-align: center; font-weight: bold; }
         .amount-box { text-align: center; padding: 15px; border-bottom: 1px solid #eee; }
         .qr-section { text-align: center; padding: 15px; }
@@ -39,9 +39,18 @@
         .utr-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 25px; margin-bottom: 10px; outline: none; }
         .submit-btn { width: 100%; padding: 12px; background: var(--main-blue); color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; }
         .close-modal { color: white; font-size: 30px; position: absolute; right: 20px; top: 10px; cursor: pointer; }
+        #timer { font-weight: bold; color: #ff3e3e; }
 
+        /* Gallery and Captions */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 30px; }
-        .gallery img { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; border: 1px solid #222; }
+        .photo-card { background: #111; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+        .gallery img { width: 100%; height: 400px; object-fit: cover; }
+        .caption { padding: 15px; font-style: italic; color: #aaa; }
+
+        /* Instagram Section */
+        .insta-links { padding: 40px; }
+        .insta-btn { margin: 10px; padding: 15px 30px; background: #222; color: #fff; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold;}
+        .insta-btn:hover { background: #fff; color: #000; }
     </style>
 </head>
 <body>
@@ -70,7 +79,27 @@
 </div>
 
 <div class="gallery">
-    <img src="K" alt="1"><img src="K1" alt="2"><img src="K2" alt="3"><img src="K3" alt="4">
+    <div class="photo-card">
+        <img src="K2" alt="1">
+        <div class="caption">"Tareef 1: Looking sharp!"</div>
+    </div>
+    <div class="photo-card">
+        <img src="K3" alt="2">
+        <div class="caption">"Tareef 2: Classic vibes."</div>
+    </div>
+    <div class="photo-card">
+        <img src="K" alt="3">
+        <div class="caption">"Tareef 3: Style icon."</div>
+    </div>
+    <div class="photo-card">
+        <img src="K1" alt="4">
+        <div class="caption">"Tareef 4: Creator mode ON."</div>
+    </div>
+</div>
+
+<div class="insta-links">
+    <a href="https://www.instagram.com/kyan_maan0" target="_blank" class="insta-btn">Instagram 1</a>
+    <a href="https://www.instagram.com/another_account" target="_blank" class="insta-btn">Instagram 2</a>
 </div>
 
 <div id="payModal" class="modal">
@@ -80,6 +109,7 @@
         <div class="amount-box">
             <p style="margin:0; color:#888; font-size: 0.8rem;">Order ID: TXN7733365</p>
             <span style="font-size: 2rem; font-weight: bold; color: var(--main-blue);">₹<span id="price-tag">99</span></span>
+            <p>Time Left: <span id="timer">05:00</span></p>
         </div>
         <div class="qr-section">
             <img src="MM.jpeg" alt="QR Code">
@@ -98,18 +128,47 @@
 </div>
 
 <script>
+    var timerInterval;
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        timerInterval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                clearInterval(timerInterval);
+                display.textContent = "EXPIRED";
+                // Optionally close modal or show a message
+            }
+        }, 1000);
+    }
+
     function openPayment(amt) {
         document.getElementById('price-tag').innerText = amt;
         document.getElementById('payModal').style.display = 'flex';
+        var fiveMinutes = 60 * 5,
+            display = document.querySelector('#timer');
+        clearInterval(timerInterval); // Reset any existing timer
+        startTimer(fiveMinutes, display);
     }
+
     function closePayment() {
         document.getElementById('payModal').style.display = 'none';
+        clearInterval(timerInterval); // Stop timer on close
     }
+
     function copyUPI() {
         var id = document.getElementById('upi-id').innerText;
         navigator.clipboard.writeText(id);
         alert("Copied: " + id);
     }
+
     window.onclick = function(e) { if(e.target == document.getElementById('payModal')) closePayment(); }
 </script>
 
