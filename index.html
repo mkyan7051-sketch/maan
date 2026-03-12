@@ -3,34 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAAM | Saharanpur</title>
+    <title>MAAM | The Visionary Creator</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #000; color: #fff; text-align: center; margin: 0; }
-        header { padding: 60px 20px; background: #111; border-bottom: 3px solid #ff3e3e; }
-        h1 { font-size: 4rem; margin: 0; letter-spacing: 5px; color: #fff; }
-        .tagline { color: #ff3e3e; font-weight: bold; margin-top: 10px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 30px; }
-        .gallery img { width: 100%; height: 450px; object-fit: cover; border-radius: 10px; border: 2px solid #222; }
-        .insta-btn { display: inline-block; padding: 15px 35px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; margin: 30px 0; }
+        :root {
+            --rgb-speed: 3s;
+        }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #080808; color: #fff; text-align: center; margin: 0; overflow-x: hidden; }
+        
+        /* RGB Logo Animation */
+        @keyframes rgbText {
+            0% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+            33% { color: #00ff00; text-shadow: 0 0 20px #00ff00; }
+            66% { color: #0000ff; text-shadow: 0 0 20px #0000ff; }
+            100% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+        }
+
+        header { padding: 80px 20px; background: radial-gradient(circle, #151515 0%, #000 100%); border-bottom: 1px solid #333; }
+        h1 { font-size: 5rem; margin: 0; letter-spacing: 10px; text-transform: uppercase; animation: rgbText var(--rgb-speed) infinite linear; cursor: pointer; }
+        .tagline { color: #888; font-weight: 300; font-size: 1.2rem; margin-top: 15px; letter-spacing: 3px; }
+
+        .about { padding: 60px 20px; background: #0a0a0a; border-bottom: 1px solid #1a1a1a; }
+        .about h2 { color: #fff; font-size: 2.2rem; margin-bottom: 15px; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 50px; }
+        .card { background: #111; border-radius: 15px; overflow: hidden; border: 1px solid #222; transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); border-color: #ff3e3e; box-shadow: 0 10px 40px rgba(255,62,62,0.2); }
+        .card img { width: 100%; height: 450px; object-fit: cover; }
+        .caption { padding: 20px; font-style: italic; color: #ccc; font-size: 1rem; border-top: 1px solid #222; }
+
+        .btn-container { padding: 50px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .insta-btn { display: inline-block; padding: 15px 40px; background: #fff; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .insta-btn.alt { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; }
+        .insta-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        footer { padding: 40px; color: #333; font-size: 0.8rem; background: #000; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>MAAM</h1>
-    <div class="tagline">SAHARANPUR | CREATOR | AUTOMOTIVE</div>
+    <div class="tagline">THE VISIONARY CREATOR | AUTOMOTIVE | DIGITAL ART</div>
 </header>
 
+<section class="about">
+    <h2>Duniya ko ek naye nazariye se dekhna meri aadat hai.</h2>
+    <p style="color: #666;">Level up your aesthetics with cinematic vibes.</p>
+</section>
+
 <div class="gallery">
-    <img src="K" alt="Shot 1">
-    <img src="K1" alt="Shot 2">
-    <img src="K2" alt="Shot 3">
-    <img src="K3" alt="Shot 4">
+    <div class="card">
+        <img src="K" alt="Shot 1">
+        <div class="caption">"Style aisi ki duniya dekhti reh jaye."</div>
+    </div>
+    <div class="card">
+        <img src="K1" alt="Shot 2">
+        <div class="caption">"Raaste badal sakte hain, manzil nahi."</div>
+    </div>
+    <div class="card">
+        <img src="K2" alt="Shot 3">
+        <div class="caption">"Har frame mein ek nayi kahani hai."</div>
+    </div>
+    <div class="card">
+        <img src="K3" alt="Shot 4">
+        <div class="caption">"Khatarnak look, be-misaal andaaz."</div>
+    </div>
+</div>
+
+<div class="btn-container">
+    <a href="https://www.instagram.com/kyan_maan0?igsh=MW1va3F5aG5kbzUwcQ==" target="_blank" class="insta-btn alt">Main Instagram</a>
+    <a href="https://www.instagram.com/" target="_blank" class="insta-btn">Second Profile</a>
 </div>
 
 <footer>
-    <a href="https://www.instagram.com/" target="_blank" class="insta-btn">Instagram Pe Aao</a>
-    <p style="color: #444;">© 2026 MAAM</p>
+    <p>© 2026 MAAM PRODUCTION | ALL RIGHTS RESERVED</p>
 </footer>
 
 </body>
